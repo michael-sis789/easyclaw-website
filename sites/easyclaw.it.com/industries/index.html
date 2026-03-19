@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industry Solutions by Vimamall | Custom Software for Your Business</title>
-    <meta name="description" content="Industry-specific software solutions with 10-day delivery guarantee and 80% market discount. Custom ERP, CRM, and management systems for 20+ industries.">
+    <title>Your Business, Digitized in 10 Days | Vimamall Industry Solutions</title>
+    <meta name="description" content="Custom Industry Systems at 80% Below Market Price. Built by Claw, Powered by Vimamall. 10-day delivery guarantee.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
             --primary-light: #2d5a8f;
             --accent: #00d4aa;
             --accent-dark: #00b894;
+            --accent-light: #e6faf6;
             --text-dark: #1a1a2e;
             --text-medium: #4a4a68;
             --text-light: #6b6b8b;
@@ -32,6 +33,10 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -74,8 +79,8 @@
         }
 
         .nav-cta {
-            background: var(--primary);
-            color: white;
+            background: var(--accent);
+            color: var(--text-dark);
             padding: 0.6rem 1.25rem;
             border-radius: 8px;
             text-decoration: none;
@@ -85,14 +90,14 @@
         }
 
         .nav-cta:hover {
-            background: var(--primary-dark);
+            background: var(--accent-dark);
             transform: translateY(-1px);
         }
 
         /* Hero Section */
         .hero {
-            padding: 8rem 1.5rem 4rem;
-            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+            padding: 10rem 1.5rem 5rem;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--accent-light) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -104,12 +109,12 @@
             right: -20%;
             width: 80%;
             height: 150%;
-            background: radial-gradient(ellipse, rgba(30, 58, 95, 0.03) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(30, 58, 95, 0.05) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
             position: relative;
@@ -120,7 +125,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(0, 212, 170, 0.1);
+            background: rgba(0, 212, 170, 0.15);
             color: var(--accent-dark);
             padding: 0.5rem 1rem;
             border-radius: 50px;
@@ -144,11 +149,11 @@
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
             color: var(--text-dark);
             margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .hero h1 span {
@@ -156,83 +161,35 @@
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: var(--text-medium);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-offers {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
-
-        .offer-card {
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            min-width: 220px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s;
-        }
-
-        .offer-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .offer-card.primary {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: white;
-        }
-
-        .offer-card.primary .offer-label {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .offer-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .offer-value {
-            font-size: 1.75rem;
-            font-weight: 700;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
         }
 
         .hero-cta {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--accent);
-            color: var(--text-dark);
-            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 1.1rem 2.5rem;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
             transition: all 0.2s;
-            box-shadow: 0 4px 14px rgba(0, 212, 170, 0.4);
+            box-shadow: 0 4px 14px rgba(30, 58, 95, 0.3);
         }
 
         .hero-cta:hover {
-            background: var(--accent-dark);
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.5);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.4);
         }
 
         .hero-trust {
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             color: var(--text-light);
             font-size: 0.9rem;
         }
@@ -241,14 +198,14 @@
             color: var(--text-dark);
         }
 
-        /* Industries Section */
-        .industries {
+        /* Why Us Section */
+        .why-us {
             padding: 5rem 1.5rem;
-            background: var(--bg-light);
+            background: var(--bg-white);
         }
 
-        .industries-content {
-            max-width: 900px;
+        .why-us-content {
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -258,7 +215,7 @@
         }
 
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 2.25rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 0.75rem;
@@ -270,7 +227,309 @@
             margin: 0 auto;
         }
 
-        /* Accordion */
+        .disruption-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .disruption-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .disruption-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .disruption-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .disruption-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .disruption-card p {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        /* Industry Solutions Section */
+        .solutions {
+            padding: 5rem 1.5rem;
+            background: var(--bg-light);
+        }
+
+        .solutions-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .solution-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .solution-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .solution-features {
+            list-style: none;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .solution-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .solution-features strong {
+            color: var(--text-dark);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 5rem 1.5rem;
+            background: var(--bg-white);
+        }
+
+        .how-it-works-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                display: none;
+            }
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-number {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 auto 1.25rem;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-day {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Trust Section */
+        .trust {
+            padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .trust-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trust-quote {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: white;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .trust-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: -1rem;
+        }
+
+        .trust-author {
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        .trust-author strong {
+            color: var(--accent);
+        }
+
+        /* Get Started Section */
+        .get-started {
+            padding: 5rem 1.5rem;
+            background: var(--bg-light);
+        }
+
+        .get-started-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .get-started h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .get-started p {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .get-started-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 1.1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(0, 212, 170, 0.4);
+        }
+
+        .get-started-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.5);
+        }
+
+        /* Industries Accordion Section */
+        .industries {
+            padding: 5rem 1.5rem;
+            background: var(--bg-white);
+        }
+
+        .industries-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .accordion {
             background: white;
             border-radius: 16px;
@@ -369,7 +628,7 @@
             gap: 1.25rem;
         }
 
-        .pain-point, .solution-features {
+        .pain-point, .solution-features-box {
             padding: 1rem;
             border-radius: 10px;
         }
@@ -393,7 +652,7 @@
             font-size: 0.95rem;
         }
 
-        .solution-features {
+        .solution-features-box {
             background: #f0fdf4;
             border-left: 4px solid #22c55e;
         }
@@ -407,13 +666,13 @@
             margin-bottom: 0.5rem;
         }
 
-        .solution-features ul {
+        .solution-features-box ul {
             list-style: none;
             display: grid;
             gap: 0.5rem;
         }
 
-        .solution-features li {
+        .solution-features-box li {
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
@@ -421,7 +680,7 @@
             font-size: 0.95rem;
         }
 
-        .solution-features li::before {
+        .solution-features-box li::before {
             content: '✓';
             color: #22c55e;
             font-weight: 700;
@@ -431,7 +690,7 @@
         /* Inquiry Form Section */
         .inquiry {
             padding: 5rem 1.5rem;
-            background: var(--bg-white);
+            background: var(--bg-light);
         }
 
         .inquiry-content {
@@ -626,21 +885,23 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
-                padding: 7rem 1rem 3rem;
+                padding: 8rem 1rem 4rem;
             }
 
-            .hero-offers {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .offer-card {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .industries {
+            .why-us, .solutions, .how-it-works, .trust, .get-started, .industries, .inquiry {
                 padding: 3rem 1rem;
+            }
+
+            .disruption-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
             }
 
             .accordion-header {
@@ -691,42 +952,166 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">Vima<span>mall</span></div>
-            <a href="#inquiry" class="nav-cta">Get Quote</a>
+            <a href="#inquiry" class="nav-cta">Get a Free Quote</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-badge">Trusted by 500+ Businesses</div>
-            <h1>Industry Solutions by <span>Vimamall</span></h1>
-            <p class="hero-subtitle">Custom software solutions built specifically for your industry. Streamline operations, reduce costs, and scale faster.</p>
-            
-            <div class="hero-offers">
-                <div class="offer-card primary">
-                    <div class="offer-label">Delivery Guarantee</div>
-                    <div class="offer-value">10 Days</div>
-                </div>
-                <div class="offer-card">
-                    <div class="offer-label">Market Discount</div>
-                    <div class="offer-value">80% Off</div>
-                </div>
-            </div>
-
+            <h1>Your Business, <span>Digitized</span> in 10 Days.</h1>
+            <p class="hero-subtitle">Custom Industry Systems at <span class="highlight">80% Below Market Price</span>. Built by Claw, Powered by Vimamall.</p>
             <a href="#inquiry" class="hero-cta">
-                Get Your Custom Solution
+                Get a Free Quote
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
             </a>
-
             <p class="hero-trust">
                 <strong>Vimamall Sdn Bhd</strong> · Malaysia-based · Serving SEA region
             </p>
         </div>
     </section>
 
-    <!-- Industries Section -->
+    <!-- Section 1: The Disruption (Why Us?) -->
+    <section class="why-us" id="why-us">
+        <div class="why-us-content">
+            <div class="section-header">
+                <h2>The Disruption</h2>
+                <p>Why Malaysian SMEs choose Vimamall for their digital transformation</p>
+            </div>
+            <div class="disruption-grid">
+                <div class="disruption-card">
+                    <div class="disruption-icon">⚡</div>
+                    <h3>The Speed</h3>
+                    <p>From requirement to <strong>"Live System"</strong> in <span class="highlight">10 Working Days</span>. No more waiting months for software deployment.</p>
+                </div>
+                <div class="disruption-card">
+                    <div class="disruption-icon">💰</div>
+                    <h3>The Cost</h3>
+                    <p>High-end custom software shouldn't cost a fortune. Our proprietary engine allows us to offer <span class="highlight">80% discounts</span> compared to traditional IT firms.</p>
+                </div>
+                <div class="disruption-card">
+                    <div class="disruption-icon">🎯</div>
+                    <h3>The Fit</h3>
+                    <p>No "one-size-fits-all" templates. We build for <strong>your specific workflow</strong>—whether it's logistics, property management, or specialized manufacturing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Industry Solutions -->
+    <section class="solutions" id="solutions">
+        <div class="solutions-content">
+            <div class="section-header">
+                <h2>Industry Solutions</h2>
+                <p>Custom systems designed for your specific business needs</p>
+            </div>
+            <div class="solutions-grid">
+                <!-- Logistics & Supply Chain -->
+                <div class="solution-card">
+                    <div class="solution-icon">🚚</div>
+                    <h3>Logistics & Supply Chain</h3>
+                    <ul class="solution-features">
+                        <li><strong>Cross-Border Portals:</strong> Customer tracking for China/Global parcels & credit top-ups.</li>
+                        <li><strong>Cold Chain Monitoring:</strong> Delivery routes + temperature logs for frozen goods.</li>
+                        <li><strong>Last-Mile Apps:</strong> Job assignment and digital signatures for delivery fleets.</li>
+                    </ul>
+                </div>
+                <!-- Property & Real Estate -->
+                <div class="solution-card">
+                    <div class="solution-icon">🏢</div>
+                    <h3>Property & Real Estate</h3>
+                    <ul class="solution-features">
+                        <li><strong>Condo Management (MC/JMB):</strong> Maintenance fee tracking, visitor QR logs, and facility booking.</li>
+                        <li><strong>Rental Manager:</strong> Automated receipts and repair request tracking for landlords.</li>
+                        <li><strong>Lead CRM:</strong> Sync FB/PropertyGuru leads directly to your sales agents.</li>
+                    </ul>
+                </div>
+                <!-- Medical & Wellness -->
+                <div class="solution-card">
+                    <div class="solution-icon">🏥</div>
+                    <h3>Medical & Wellness</h3>
+                    <ul class="solution-features">
+                        <li><strong>Clinic/Dental Portals:</strong> Appointment booking, digital X-rays, and medicine inventory.</li>
+                        <li><strong>Gym & Fitness:</strong> Door access integration and member class scheduling.</li>
+                        <li><strong>TCM System:</strong> Patient-specific herb formulas and treatment history.</li>
+                    </ul>
+                </div>
+                <!-- Specialized Business Systems -->
+                <div class="solution-card">
+                    <div class="solution-icon">⚙️</div>
+                    <h3>Specialized Business Systems</h3>
+                    <ul class="solution-features">
+                        <li><strong>Central Kitchen ERP:</strong> Manage bulk orders, waste, and outlet supply.</li>
+                        <li><strong>Agriculture Tracker:</strong> Monitor planting, fertilizer cycles, and harvest yields (Ideal for Corn/Jackfruit farms).</li>
+                        <li><strong>Manufacturing Job Shop:</strong> Track custom orders through every machine stage.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: How It Works (The 10-Day Sprint) -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="how-it-works-content">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>The 10-Day Sprint: From concept to live system</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <span class="timeline-day">Day 1</span>
+                    <h3>Consultation</h3>
+                    <p>You tell us your "pain point" and requirements.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <span class="timeline-day">Day 2-3</span>
+                    <h3>Architecture</h3>
+                    <p>Our team maps out your custom database and workflow.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <span class="timeline-day">Day 4-8</span>
+                    <h3>Claw Build</h3>
+                    <p>We deploy your system using our high-speed development engine.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <span class="timeline-day">Day 9-10</span>
+                    <h3>UAT & Launch</h3>
+                    <p>You test the system, we refine, and you go live.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Trust & Reliability -->
+    <section class="trust">
+        <div class="trust-content">
+            <p class="trust-quote">We don't just build software; we build operational efficiency. Vimamall Sdn Bhd is committed to helping Malaysian SMEs skip the high cost of digital transformation.</p>
+            <p class="trust-author">— <strong>Vimamall</strong> Sdn Bhd</p>
+        </div>
+    </section>
+
+    <!-- Section 5: Get Started Today -->
+    <section class="get-started" id="get-started">
+        <div class="get-started-content">
+            <h2>Get Started Today</h2>
+            <p>Ready to transform your business operations? Stop relying on messy Excel sheets and manual paperwork. Get a professional, automated system that works as hard as you do.</p>
+            <a href="#inquiry" class="get-started-cta">
+                Get a Free Quote
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section 6: 20 Industry Accordion -->
     <section class="industries" id="industries">
         <div class="industries-content">
             <div class="section-header">
@@ -752,7 +1137,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Messy WhatsApp/Excel tracking causing lost parcels and customer complaints.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>China/Global parcel tracking system</li>
@@ -781,7 +1166,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Spoiled goods due to temperature spikes during transit, causing massive losses.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Real-time temperature logging</li>
@@ -810,7 +1195,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Low maintenance fee collection rates and manual visitor logbooks creating security gaps.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Maintenance fee dashboard with auto-reminders</li>
@@ -839,7 +1224,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Ingredient wastage and outlet misorders leading to food cost inflation.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Bulk ingredient procurement module</li>
@@ -868,7 +1253,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Unpredictable harvests causing cash flow problems and supply uncertainty.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Planting schedule optimizer</li>
@@ -897,7 +1282,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Missing court dates and document version confusion risking client cases.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Case timeline tracking with alerts</li>
@@ -926,7 +1311,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Manual receipt sorting taking hours for LHDN submission every month.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>E-Invoicing preparation ready</li>
@@ -955,7 +1340,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Lapsed policies and forgotten leads causing revenue loss every month.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Policy renewal date alerts</li>
@@ -984,7 +1369,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Not knowing which machine is busy causing production delays and idle time.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Production stage tracking (CNC/Printing/Assembly)</li>
@@ -1013,7 +1398,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Inaccurate site progress reports causing disputes with clients and delays.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Daily site photo uploads with GPS tagging</li>
@@ -1042,7 +1427,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Customers forgetting service dates resulting in lost recurring revenue.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Digital service history per vehicle</li>
@@ -1071,7 +1456,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Logging into 3 different apps just to ship 1 order, wasting hours daily.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Sync Shopee/Lazada orders automatically</li>
@@ -1100,7 +1485,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Double-booked appointments causing patient frustration and wasted slots.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Digital medical records</li>
@@ -1129,7 +1514,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Paper-based X-ray filing making retrieval slow and risking lost records.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Patient X-ray cloud storage</li>
@@ -1158,7 +1543,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Complex herb formula history per patient hard to track and replicate.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Custom herb formula builder</li>
@@ -1187,7 +1572,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Unpaid members entering gym causing revenue leakage.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Door access integration</li>
@@ -1216,7 +1601,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Chasing parents for fees every month wasting teaching time.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Student attendance tracking</li>
@@ -1245,7 +1630,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Physical MC forms getting lost causing payroll disputes.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Mobile photo upload for medical claims</li>
@@ -1274,7 +1659,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Customers calling sales reps for prices tying up staff constantly.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Member-only pricing tiers</li>
@@ -1303,7 +1688,7 @@
                                 <div class="pain-point-label">Pain Point</div>
                                 <div class="pain-point-text">Need for transparent donation tracking to maintain donor trust.</div>
                             </div>
-                            <div class="solution-features">
+                            <div class="solution-features-box">
                                 <div class="solution-label">Solution Features</div>
                                 <ul>
                                     <li>Digital donation receipts</li>
@@ -1408,7 +1793,7 @@
 
     <!-- Sticky CTA for Mobile -->
     <div class="sticky-cta">
-        <a href="#inquiry">Get Your Custom Solution</a>
+        <a href="#inquiry">Get a Free Quote</a>
     </div>
 
     <script>
