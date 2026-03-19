@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Solutions by Vimamall | Custom Software for Your Business</title>
+    <meta name="description" content="Industry-specific software solutions with 10-day delivery guarantee and 80% market discount. Custom ERP, CRM, and management systems for 20+ industries.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-dark: #152a45;
+            --primary-light: #2d5a8f;
+            --accent: #00d4aa;
+            --accent-dark: #00b894;
+            --text-dark: #1a1a2e;
+            --text-medium: #4a4a68;
+            --text-light: #6b6b8b;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-gray: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 1.5rem 4rem;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(30, 58, 95, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--accent-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-offers {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .offer-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            min-width: 220px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+        }
+
+        .offer-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .offer-card.primary {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .offer-card.primary .offer-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .offer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .offer-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(0, 212, 170, 0.4);
+        }
+
+        .hero-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.5);
+        }
+
+        .hero-trust {
+            margin-top: 3rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .hero-trust strong {
+            color: var(--text-dark);
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 5rem 1.5rem;
+            background: var(--bg-light);
+        }
+
+        .industries-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--text-medium);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Accordion */
+        .accordion {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: var(--bg-light);
+        }
+
+        .accordion-header.active {
+            background: var(--bg-light);
+        }
+
+        .accordion-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .accordion-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .accordion-header.active .accordion-icon {
+            background: var(--primary);
+        }
+
+        .accordion-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .accordion-header.active h3 {
+            color: var(--primary);
+        }
+
+        .accordion-chevron {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s;
+            color: var(--text-light);
+        }
+
+        .accordion-header.active .accordion-chevron {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+            background: white;
+        }
+
+        .accordion-content.open {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .accordion-body {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .pain-point, .solution-features {
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .pain-point {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+        }
+
+        .pain-point-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #dc2626;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-point-text {
+            color: #7f1d1d;
+            font-size: 0.95rem;
+        }
+
+        .solution-features {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+        }
+
+        .solution-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #16a34a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-features ul {
+            list-style: none;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: #14532d;
+            font-size: 0.95rem;
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Inquiry Form Section */
+        .inquiry {
+            padding: 5rem 1.5rem;
+            background: var(--bg-white);
+        }
+
+        .inquiry-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-medium);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .form-submit:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .success-message h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .success-message p {
+            color: var(--text-medium);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Sticky CTA (mobile) */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .sticky-cta a {
+            display: block;
+            background: var(--accent);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 7rem 1rem 3rem;
+            }
+
+            .hero-offers {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .offer-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .industries {
+                padding: 3rem 1rem;
+            }
+
+            .accordion-header {
+                padding: 1rem;
+            }
+
+            .accordion-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .accordion-title h3 {
+                font-size: 0.9rem;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .sticky-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Vima<span>mall</span></div>
+            <a href="#inquiry" class="nav-cta">Get Quote</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Trusted by 500+ Businesses</div>
+            <h1>Industry Solutions by <span>Vimamall</span></h1>
+            <p class="hero-subtitle">Custom software solutions built specifically for your industry. Streamline operations, reduce costs, and scale faster.</p>
+            
+            <div class="hero-offers">
+                <div class="offer-card primary">
+                    <div class="offer-label">Delivery Guarantee</div>
+                    <div class="offer-value">10 Days</div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-label">Market Discount</div>
+                    <div class="offer-value">80% Off</div>
+                </div>
+            </div>
+
+            <a href="#inquiry" class="hero-cta">
+                Get Your Custom Solution
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+
+            <p class="hero-trust">
+                <strong>Vimamall Sdn Bhd</strong> · Malaysia-based · Serving SEA region
+            </p>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries" id="industries">
+        <div class="industries-content">
+            <div class="section-header">
+                <h2>Solutions for 20+ Industries</h2>
+                <p>Click to explore pain points and solutions tailored for your specific business needs.</p>
+            </div>
+
+            <div class="accordion" id="industriesAccordion">
+                <!-- Industry 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="0">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">📦</div>
+                            <h3>Cross-Border Forwarding</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Messy WhatsApp/Excel tracking causing lost parcels and customer complaints.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>China/Global parcel tracking system</li>
+                                    <li>Automated shipping cost calculation</li>
+                                    <li>Customer credit top-up portal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="1">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🧊</div>
+                            <h3>Cold Chain Logistics</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Spoiled goods due to temperature spikes during transit, causing massive losses.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Real-time temperature logging</li>
+                                    <li>GPS route monitoring</li>
+                                    <li>Delivery timestamp proof</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="2">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🏢</div>
+                            <h3>Condo & JMB Management</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Low maintenance fee collection rates and manual visitor logbooks creating security gaps.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Maintenance fee dashboard with auto-reminders</li>
+                                    <li>Facility booking system</li>
+                                    <li>Visitor QR-pass system</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 4 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="3">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🍳</div>
+                            <h3>Central Kitchen & F&B</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Ingredient wastage and outlet misorders leading to food cost inflation.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Bulk ingredient procurement module</li>
+                                    <li>Production waste tracking</li>
+                                    <li>Outlet-to-HQ ordering system</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 5 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="4">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🌾</div>
+                            <h3>Smart Agriculture</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Unpredictable harvests causing cash flow problems and supply uncertainty.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Planting schedule optimizer</li>
+                                    <li>Fertilizer cycle reminders</li>
+                                    <li>Yield forecasting (Great for Corn/Jackfruit farms)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 6 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="5">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">⚖️</div>
+                            <h3>Legal Case Management</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Missing court dates and document version confusion risking client cases.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Case timeline tracking with alerts</li>
+                                    <li>Client billing hours calculator</li>
+                                    <li>Secure document archiving</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 7 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="6">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">📊</div>
+                            <h3>Accounting & Tax Helper</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Manual receipt sorting taking hours for LHDN submission every month.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>E-Invoicing preparation ready</li>
+                                    <li>CP58 commission sorting</li>
+                                    <li>Auto-categorized expense logs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 8 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="7">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🛡️</div>
+                            <h3>Insurance Agency CRM</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Lapsed policies and forgotten leads causing revenue loss every month.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Policy renewal date alerts</li>
+                                    <li>Automated WhatsApp reminders</li>
+                                    <li>Commission payout tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 9 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="8">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🏭</div>
+                            <h3>Manufacturing Job Shop</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Not knowing which machine is busy causing production delays and idle time.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Production stage tracking (CNC/Printing/Assembly)</li>
+                                    <li>Real-time machine status dashboards</li>
+                                    <li>Job queue optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 10 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="9">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🏗️</div>
+                            <h3>Construction & Site HQ</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Inaccurate site progress reports causing disputes with clients and delays.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Daily site photo uploads with GPS tagging</li>
+                                    <li>Man-hour tracking per task</li>
+                                    <li>Material cost monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 11 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="10">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🔧</div>
+                            <h3>Vehicle Workshop</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Customers forgetting service dates resulting in lost recurring revenue.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Digital service history per vehicle</li>
+                                    <li>Spare part inventory management</li>
+                                    <li>"Next Service" SMS alerts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 12 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="11">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🛒</div>
+                            <h3>E-Commerce Fulfillment</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Logging into 3 different apps just to ship 1 order, wasting hours daily.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Sync Shopee/Lazada orders automatically</li>
+                                    <li>One "Order-to-Pack" dashboard</li>
+                                    <li>Auto-print shipping labels</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 13 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="12">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🏥</div>
+                            <h3>Clinic Patient Portal</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Double-booked appointments causing patient frustration and wasted slots.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Digital medical records</li>
+                                    <li>Medicine inventory tracking</li>
+                                    <li>Online booking system</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 14 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="13">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🦷</div>
+                            <h3>Dental Practice Manager</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Paper-based X-ray filing making retrieval slow and risking lost records.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Patient X-ray cloud storage</li>
+                                    <li>Treatment plan tracking</li>
+                                    <li>Appointment SMS reminders</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 15 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="14">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🌿</div>
+                            <h3>TCM (Chinese Medicine)</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Complex herb formula history per patient hard to track and replicate.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Custom herb formula builder</li>
+                                    <li>Treatment history tracking</li>
+                                    <li>Patient pulse records</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 16 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="15">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">💪</div>
+                            <h3>Gym & Fitness Club</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Unpaid members entering gym causing revenue leakage.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Door access integration</li>
+                                    <li>Membership tier management</li>
+                                    <li>Class scheduling system</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 17 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="16">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">📚</div>
+                            <h3>Tuition & Education</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Chasing parents for fees every month wasting teaching time.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Student attendance tracking</li>
+                                    <li>Automated fee receipts</li>
+                                    <li>Digital progress reports for parents</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 18 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="17">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">👔</div>
+                            <h3>HR Claim & Leave</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Physical MC forms getting lost causing payroll disputes.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Mobile photo upload for medical claims</li>
+                                    <li>One-click leave approval for bosses</li>
+                                    <li>Leave balance tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 19 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="18">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">📦</div>
+                            <h3>B2B Wholesale Portal</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Customers calling sales reps for prices tying up staff constantly.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Member-only pricing tiers</li>
+                                    <li>Wholesale order quantity triggers</li>
+                                    <li>Credit limit tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industry 20 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" data-index="19">
+                        <div class="accordion-title">
+                            <div class="accordion-icon">🛕</div>
+                            <h3>Non-Profit & Temple</h3>
+                        </div>
+                        <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="pain-point">
+                                <div class="pain-point-label">Pain Point</div>
+                                <div class="pain-point-text">Need for transparent donation tracking to maintain donor trust.</div>
+                            </div>
+                            <div class="solution-features">
+                                <div class="solution-label">Solution Features</div>
+                                <ul>
+                                    <li>Digital donation receipts</li>
+                                    <li>Volunteer shift scheduling</li>
+                                    <li>Event calendar management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Form Section -->
+    <section class="inquiry" id="inquiry">
+        <div class="inquiry-content">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Get Your Custom Solution</h2>
+                    <p>Tell us about your business and we'll respond within 24 hours.</p>
+                </div>
+
+                <form id="inquiryForm" name="industry-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <p style="display: none;">
+                        <label>Don't fill this out: <input name="bot-field" /></label>
+                    </p>
+                    <input type="hidden" name="form-name" value="industry-inquiry" />
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Smith">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" name="company" required placeholder="Your Company Sdn Bhd">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp Number *</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+60 12-345 6789">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="industry">Industry *</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Select your industry...</option>
+                            <option value="Cross-Border Forwarding">Cross-Border Forwarding</option>
+                            <option value="Cold Chain Logistics">Cold Chain Logistics</option>
+                            <option value="Condo & JMB Management">Condo & JMB Management</option>
+                            <option value="Central Kitchen & F&B">Central Kitchen & F&B</option>
+                            <option value="Smart Agriculture">Smart Agriculture</option>
+                            <option value="Legal Case Management">Legal Case Management</option>
+                            <option value="Accounting & Tax Helper">Accounting & Tax Helper</option>
+                            <option value="Insurance Agency CRM">Insurance Agency CRM</option>
+                            <option value="Manufacturing Job Shop">Manufacturing Job Shop</option>
+                            <option value="Construction & Site HQ">Construction & Site HQ</option>
+                            <option value="Vehicle Workshop">Vehicle Workshop</option>
+                            <option value="E-Commerce Fulfillment">E-Commerce Fulfillment</option>
+                            <option value="Clinic Patient Portal">Clinic Patient Portal</option>
+                            <option value="Dental Practice Manager">Dental Practice Manager</option>
+                            <option value="TCM (Chinese Medicine)">TCM (Chinese Medicine)</option>
+                            <option value="Gym & Fitness Club">Gym & Fitness Club</option>
+                            <option value="Tuition & Education">Tuition & Education</option>
+                            <option value="HR Claim & Leave">HR Claim & Leave</option>
+                            <option value="B2B Wholesale Portal">B2B Wholesale Portal</option>
+                            <option value="Non-Profit & Temple">Non-Profit & Temple</option>
+                            <option value="Other">Other (specify in message)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message / Requirements *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your current challenges and what you need..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">
+                        <span class="btn-text">Send Inquiry</span>
+                    </button>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>Our team from Vimamall Sdn Bhd will contact you within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Vima<span>mall</span> Sdn Bhd</div>
+            <p>Custom software solutions for businesses across Southeast Asia</p>
+            <div class="footer-contact">
+                <a href="mailto:admin@vimamall.com">admin@vimamall.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA for Mobile -->
+    <div class="sticky-cta">
+        <a href="#inquiry">Get Your Custom Solution</a>
+    </div>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isOpen = content.classList.contains('open');
+                
+                // Close all other accordion items
+                document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+                document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+                
+                // Toggle current item
+                if (!isOpen) {
+                    content.classList.add('open');
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Form handling
+        const form = document.getElementById('inquiryForm');
+        const successMessage = document.getElementById('successMessage');
+        const submitBtn = form.querySelector('.form-submit');
+        const btnText = submitBtn.querySelector('.btn-text');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<span class="spinner"></span> Sending...';
+
+            const formData = new FormData(form);
+            const industry = formData.get('industry');
+            const name = formData.get('name');
+            const company = formData.get('company');
+            const whatsapp = formData.get('whatsapp');
+            const message = formData.get('message');
+
+            // Prepare email subject with industry
+            const emailSubject = `Inquiry for ${industry} Solution`;
+
+            // Create email body
+            const emailBody = `
+New Industry Inquiry
+
+Industry: ${industry}
+Name: ${name}
+Company: ${company}
+WhatsApp: ${whatsapp}
+
+Message:
+${message}
+
+---
+Sent from Industry Solutions page on easyclaw.it.com
+            `.trim();
+
+            try {
+                // Send to Netlify Forms (primary)
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                if (response.ok) {
+                    // Also send email via mailto (as backup/notification)
+                    const mailtoLink = `mailto:admin@vimamall.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    
+                    // Show success message
+                    form.style.display = 'none';
+                    successMessage.classList.add('show');
+                    
+                    // Open mailto in background (for notification)
+                    setTimeout(() => {
+                        window.open(mailtoLink, '_blank');
+                    }, 500);
+
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Fallback: try mailto
+                const mailtoLink = `mailto:admin@vimamall.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = mailtoLink;
+                
+                form.style.display = 'none';
+                successMessage.classList.add('show');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll padding for fixed header
+        document.documentElement.style.scrollPaddingTop = '80px';
+    </script>
+</body>
+</html>
