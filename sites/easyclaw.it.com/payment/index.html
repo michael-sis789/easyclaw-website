@@ -3,448 +3,1150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment - Vimamall</title>
+    <title>Complete Your Purchase - OpenClaw Auto | RM50</title>
+    <meta name="description" content="Get OpenClaw Auto - 20 AI Workflows for RM50. One-time payment, lifetime access. Secure checkout.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-dark: #152a45;
+            --primary-light: #2d5a8f;
+            --accent: #00d4aa;
+            --accent-dark: #00b894;
+            --accent-light: #e6faf6;
+            --text-dark: #1a1a2e;
+            --text-medium: #4a4a68;
+            --text-light: #6b6b8b;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-gray: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --urgent-red: #ef4444;
         }
-        
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--accent-light) 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        /* Main Container */
         .container {
-            max-width: 600px;
-            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Checkout Layout */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Order Summary Card */
+        .order-summary {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            overflow: hidden;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            position: sticky;
+            top: 2rem;
         }
-        
-        .header {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            opacity: 0.9;
-            font-size: 16px;
-        }
-        
-        .content {
-            padding: 40px 30px;
-        }
-        
-        .pricing-cards {
-            display: grid;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .pricing-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 25px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .pricing-card:hover {
-            border-color: #1e3a5f;
-            transform: translateY(-2px);
-        }
-        
-        .pricing-card.popular {
-            border-color: #1e3a5f;
-            background: linear-gradient(135deg, #f8faff 0%, #f0f4f8 100%);
-        }
-        
-        .badge {
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            background: #1e3a5f;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .badge.free {
-            background: #10b981;
-        }
-        
-        .plan-name {
-            font-size: 20px;
+
+        .order-summary h2 {
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #1e3a5f;
-            margin-bottom: 5px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
         }
-        
-        .plan-price {
-            font-size: 36px;
-            font-weight: 800;
-            color: #1e3a5f;
-            margin: 15px 0;
-        }
-        
-        .plan-price span {
-            font-size: 16px;
-            font-weight: 400;
-            color: #666;
-        }
-        
-        .plan-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .plan-features li {
-            padding: 8px 0;
-            color: #555;
+
+        .product-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-        
-        .plan-features li::before {
-            content: "✓";
-            color: #10b981;
-            font-weight: bold;
-        }
-        
-        .btn {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(30,58,95,0.3);
-        }
-        
-        .btn-success {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-        }
-        
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(16,185,129,0.3);
-        }
-        
-        .voucher-section {
-            background: #f8fafc;
+
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
             border-radius: 12px;
-            padding: 25px;
-            margin-top: 30px;
-            border: 2px dashed #cbd5e1;
-        }
-        
-        .voucher-section h3 {
-            color: #1e3a5f;
-            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
         }
-        
+
+        .product-details h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .product-details p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            font-size: 0.95rem;
+        }
+
+        .summary-row.discount {
+            color: var(--accent-dark);
+        }
+
+        .summary-row.total {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            border-top: 2px solid var(--border);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .payment-header {
+            margin-bottom: 2rem;
+        }
+
+        .payment-header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-header p {
+            color: var(--text-medium);
+        }
+
+        /* Voucher Section */
+        .voucher-section {
+            background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+            border: 2px dashed #facc15;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .voucher-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .voucher-section p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+        }
+
         .voucher-input-group {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 0.75rem;
         }
-        
+
         .voucher-input {
             flex: 1;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
+            padding: 0.75rem 1rem;
+            border: 2px solid #facc15;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .voucher-input:focus {
             outline: none;
-            border-color: #1e3a5f;
+            border-color: var(--primary);
         }
-        
+
         .voucher-btn {
-            padding: 15px 25px;
-            background: #1e3a5f;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
-        
+
         .voucher-btn:hover {
-            background: #2d4a6f;
+            background: var(--primary-dark);
         }
-        
+
         .voucher-message {
-            margin-top: 15px;
-            padding: 15px;
+            margin-top: 1rem;
+            padding: 0.75rem;
             border-radius: 8px;
+            font-size: 0.9rem;
             display: none;
         }
-        
+
         .voucher-message.success {
             display: block;
             background: #d1fae5;
             color: #065f46;
-            border: 1px solid #10b981;
+            border: 1px solid var(--accent);
         }
-        
+
         .voucher-message.error {
             display: block;
             background: #fee2e2;
             color: #991b1b;
             border: 1px solid #ef4444;
         }
-        
-        .free-access-banner {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            padding: 20px;
+
+        /* Payment Methods */
+        .payment-methods {
+            margin-bottom: 2rem;
+        }
+
+        .payment-methods h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 2px solid var(--border);
             border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .payment-option:hover {
+            border-color: var(--primary-light);
+        }
+
+        .payment-option.active {
+            border-color: var(--primary);
+            background: var(--bg-light);
+        }
+
+        .payment-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+        }
+
+        .payment-option-icon {
+            font-size: 1.5rem;
+        }
+
+        .payment-option-details {
+            flex: 1;
+        }
+
+        .payment-option-details h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .payment-option-details p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Payment Forms */
+        .payment-form {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .secure-badge svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-dark);
+        }
+
+        /* Pay Button */
+        .pay-btn {
+            width: 100%;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, var(--urgent-red) 0%, #dc2626 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .pay-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .pay-btn:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .pay-btn.processing {
+            background: var(--primary);
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Free Access Banner */
+        .free-access-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
             text-align: center;
-            margin-top: 20px;
+            margin-bottom: 2rem;
             display: none;
         }
-        
+
         .free-access-banner.active {
             display: block;
         }
-        
+
         .free-access-banner h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
-        
-        .locked-notice {
-            background: #fee2e2;
-            color: #991b1b;
-            padding: 20px;
+
+        .free-access-banner p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Bank Transfer Section */
+        .bank-transfer-info {
+            background: var(--bg-light);
             border-radius: 12px;
-            text-align: center;
-            margin-top: 20px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .bank-transfer-info h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .bank-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 0.9rem;
+        }
+
+        .bank-detail:last-child {
+            border-bottom: none;
+        }
+
+        .bank-detail span:first-child {
+            color: var(--text-light);
+        }
+
+        .bank-detail span:last-child {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Success Modal */
+        .success-modal {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
         }
-        
-        .locked-notice.active {
-            display: block;
+
+        .success-modal.active {
+            display: flex;
         }
-        
+
+        .success-content {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .success-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .success-content p {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+        }
+
+        .next-steps {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .next-steps h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .next-steps ol {
+            padding-left: 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .next-steps li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .order-summary {
+                position: static;
+                order: -1;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 480px) {
             .voucher-input-group {
                 flex-direction: column;
             }
-            
-            .header h1 {
-                font-size: 24px;
+
+            .payment-option {
+                flex-wrap: wrap;
+            }
+
+            .success-content {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎯 Choose Your Plan</h1>
-            <p>Start with our FREE trial or upgrade for full access</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Open<span>Claw</span> Auto</a>
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
         </div>
-        
-        <div class="content">
-            <div class="pricing-cards">
-                <!-- Free Trial with Voucher -->
-                <div class="pricing-card popular" id="freeCard" style="display: none;">
-                    <span class="badge free">FREE ACCESS</span>
-                    <div class="plan-name">🎁 Free Trial Access</div>
-                    <div class="plan-price">RM 0 <span>/ one-time</span></div>
-                    <ul class="plan-features">
-                        <li>All Premium Features Unlocked</li>
-                        <li>Unlimited Industry Solutions</li>
-                        <li>Priority Support</li>
-                        <li>No Credit Card Required</li>
-                    </ul>
-                    <button class="btn btn-success" onclick="window.location.href='/dashboard'">
-                        Access All Features Now
-                    </button>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="checkout-grid">
+            <!-- Payment Section -->
+            <div class="payment-section">
+                <div class="payment-header">
+                    <h1>Complete Your Purchase</h1>
+                    <p>Secure checkout — you'll get instant access after payment</p>
                 </div>
-                
-                <!-- Regular Plan -->
-                <div class="pricing-card" id="regularCard">
-                    <div class="plan-name">💼 Business Solution</div>
-                    <div class="plan-price">Custom <span>/ project-based</span></div>
-                    <ul class="plan-features">
-                        <li>Custom Industry System</li>
-                        <li>10-Day Delivery Guarantee</li>
-                        <li>80% Below Market Price</li>
-                        <li>Full Source Code</li>
-                        <li>1 Year Support</li>
-                    </ul>
-                    <button class="btn btn-primary" onclick="window.location.href='#contact'">
-                        Get a Quote
-                    </button>
+
+                <!-- Free Access Banner (hidden by default) -->
+                <div class="free-access-banner" id="freeAccessBanner">
+                    <h3>🎉 Free Access Activated!</h3>
+                    <p>Your voucher code has been applied. You can download the workflows now.</p>
+                    <a href="/setup/" class="download-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Get Started with Setup
+                    </a>
+                </div>
+
+                <!-- Voucher Section -->
+                <div class="voucher-section" id="voucherSection">
+                    <h3>
+                        🎟️ Have a Voucher Code?
+                    </h3>
+                    <p>Enter your code below for special pricing or free access</p>
+                    <div class="voucher-input-group">
+                        <input type="text" 
+                               class="voucher-input" 
+                               id="voucherInput" 
+                               placeholder="ENTER CODE"
+                               maxlength="10">
+                        <button class="voucher-btn" onclick="checkVoucher()">
+                            Apply
+                        </button>
+                    </div>
+                    <div class="voucher-message" id="voucherMessage"></div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="payment-methods" id="paymentMethods">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-options">
+                        <label class="payment-option active" data-method="card">
+                            <input type="radio" name="payment" value="card" checked>
+                            <span class="payment-option-icon">💳</span>
+                            <div class="payment-option-details">
+                                <h4>Credit/Debit Card</h4>
+                                <p>Visa, Mastercard, Amex</p>
+                            </div>
+                        </label>
+
+                        <label class="payment-option" data-method="paypal">
+                            <input type="radio" name="payment" value="paypal">
+                            <span class="payment-option-icon">🅿️</span>
+                            <div class="payment-option-details">
+                                <h4>PayPal</h4>
+                                <p>Pay securely with your PayPal account</p>
+                            </div>
+                        </label>
+
+                        <label class="payment-option" data-method="bank">
+                            <input type="radio" name="payment" value="bank">
+                            <span class="payment-option-icon">🏦</span>
+                            <div class="payment-option-details">
+                                <h4>Bank Transfer / FPX</h4>
+                                <p>Maybank, CIMB, Public Bank & more</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Card Payment Form -->
+                <div class="payment-form active" id="cardForm">
+                    <div class="secure-badge">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                        </svg>
+                        🔒 SSL Secure Payment — Your data is encrypted
+                    </div>
+
+                    <form id="paymentForm" onsubmit="handlePayment(event)">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardName">Name on Card *</label>
+                            <input type="text" id="cardName" name="cardName" required placeholder="John Smith">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number *</label>
+                            <input type="text" id="cardNumber" name="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date *</label>
+                                <input type="text" id="expiry" name="expiry" required placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV *</label>
+                                <input type="text" id="cvv" name="cvv" required placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="pay-btn" id="payButton">
+                            Pay RM50 — Get Instant Access
+                        </button>
+                    </form>
+                </div>
+
+                <!-- PayPal Form -->
+                <div class="payment-form" id="paypalForm">
+                    <div class="secure-badge">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                        </svg>
+                        🔒 You'll be redirected to PayPal to complete payment
+                    </div>
+
+                    <form onsubmit="handlePaypalPayment(event)">
+                        <div class="form-group">
+                            <label for="paypalEmail">Email Address *</label>
+                            <input type="email" id="paypalEmail" required placeholder="you@example.com">
+                        </div>
+
+                        <button type="submit" class="pay-btn">
+                            Continue to PayPal
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Bank Transfer Form -->
+                <div class="payment-form" id="bankForm">
+                    <div class="secure-badge">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                        </svg>
+                        🔒 Payment details will be sent to your email
+                    </div>
+
+                    <form onsubmit="handleBankPayment(event)">
+                        <div class="form-group">
+                            <label for="bankEmail">Email Address *</label>
+                            <input type="email" id="bankEmail" required placeholder="you@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required placeholder="+60 12-345 6789">
+                        </div>
+
+                        <button type="submit" class="pay-btn">
+                            Get Bank Transfer Details
+                        </button>
+                    </form>
+
+                    <div class="bank-transfer-info">
+                        <h4>🏦 Bank Account Details</h4>
+                        <div class="bank-detail">
+                            <span>Bank</span>
+                            <span>Maybank</span>
+                        </div>
+                        <div class="bank-detail">
+                            <span>Account Name</span>
+                            <span>VIMAMALL SDN BHD</span>
+                        </div>
+                        <div class="bank-detail">
+                            <span>Account Number</span>
+                            <span>5123 4567 8910</span>
+                        </div>
+                        <div class="bank-detail">
+                            <span>Amount</span>
+                            <span>RM50.00</span>
+                        </div>
+                        <div class="bank-detail">
+                            <span>Reference</span>
+                            <span>OPENCLAW + [Your Email]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">🔒 SSL Secured</div>
+                    <div class="trust-badge">✓ 30-Day Refund</div>
+                    <div class="trust-badge">💬 24/7 Support</div>
                 </div>
             </div>
-            
-            <!-- Voucher Section -->
-            <div class="voucher-section" id="voucherSection">
-                <h3>🎟️ Have a Voucher Code?</h3>
-                <p>Enter your voucher code below to unlock FREE access to all features.</p>
-                
-                <div class="voucher-input-group">
-                    <input type="text" 
-                           class="voucher-input" 
-                           id="voucherInput" 
-                           placeholder="ENTER CODE"
-                           maxlength="10">
-                    <button class="voucher-btn" onclick="checkVoucher()">
-                        Apply
-                    </button>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+
+                <div class="product-item">
+                    <div class="product-icon">🤖</div>
+                    <div class="product-details">
+                        <h3>OpenClaw Auto</h3>
+                        <p>20 AI Workflows Pack</p>
+                        <div class="product-price" id="productPrice">RM50.00</div>
+                    </div>
                 </div>
-                
-                <div class="voucher-message" id="voucherMessage"></div>
-            </div>
-            
-            <!-- Free Access Active Banner -->
-            <div class="free-access-banner" id="freeAccessBanner">
-                <h3>🎉 Free Access Activated!</h3>
-                <p>You now have full access to all features. Enjoy your trial!</p>
-            </div>
-            
-            <!-- Voucher Locked Notice -->
-            <div class="locked-notice" id="lockedNotice">
-                <h3>🔒 Voucher System Currently Unavailable</h3>
-                <p>Free trial vouchers are temporarily closed. Please contact us for access.</p>
+
+                <ul class="features-list">
+                    <li>All 20 pre-built workflows</li>
+                    <li>Lifetime access</li>
+                    <li>Free future updates</li>
+                    <li>Community support</li>
+                    <li>Full source code</li>
+                </ul>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">RM50.00</span>
+                </div>
+                <div class="summary-row discount" id="discountRow" style="display: none;">
+                    <span>Discount (Voucher)</span>
+                    <span id="discountAmount">-RM50.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="totalAmount">RM50.00</span>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h2>Payment Successful! 🎉</h2>
+            <p>Thank you for your purchase. Your workflows are ready for download.</p>
+
+            <div class="next-steps">
+                <h4>Next Steps:</h4>
+                <ol>
+                    <li>Check your email for download link</li>
+                    <li>Follow the setup guide for installation</li>
+                    <li>Activate your preferred workflows</li>
+                </ol>
+            </div>
+
+            <a href="/setup/" class="pay-btn">
+                Go to Setup Guide
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Vimamall Sdn Bhd. <a href="mailto:admin@vimamall.com">Need help?</a></p>
+    </footer>
+
     <script>
-        // Configuration - Admin can toggle this
+        // Configuration
         const VOUCHER_CONFIG = {
-            ENABLED: true,  // Set to false to disable voucher system
+            ENABLED: true,
             CODE: 'FREETRY',
-            EXPIRY: null,   // Set date string to expire, null for no expiry
-            MAX_USES: null  // Set number for max uses, null for unlimited
+            DISCOUNT: 50, // RM50 off (free)
+            EXPIRY: null,
+            MAX_USES: null
         };
-        
-        // Check if user already has free access
-        function checkExistingAccess() {
-            const hasAccess = localStorage.getItem('vimamall_free_access');
-            if (hasAccess === 'true') {
-                showFreeAccess();
-            }
-        }
-        
-        // Check voucher code
+
+        let currentPrice = 50;
+        let voucherApplied = false;
+
+        // Voucher Check
         function checkVoucher() {
             const input = document.getElementById('voucherInput');
             const message = document.getElementById('voucherMessage');
             const code = input.value.trim().toUpperCase();
-            
-            // Check if voucher system is enabled
+
             if (!VOUCHER_CONFIG.ENABLED) {
-                message.className = 'voucher-message error';
-                message.textContent = '⚠️ Voucher system is currently disabled. Please contact admin@vimamall.com for assistance.';
+                showVoucherMessage('Voucher system is temporarily disabled.', 'error');
                 return;
             }
-            
-            // Validate code
+
             if (code === VOUCHER_CONFIG.CODE) {
-                // Success - Grant free access
-                localStorage.setItem('vimamall_free_access', 'true');
-                localStorage.setItem('vimamall_access_granted_date', new Date().toISOString());
-                
-                message.className = 'voucher-message success';
-                message.innerHTML = '✅ <strong>Success!</strong> Free access granted. All features are now unlocked!';
-                
-                showFreeAccess();
+                applyVoucher();
             } else if (code === '') {
-                message.className = 'voucher-message error';
-                message.textContent = '⚠️ Please enter a voucher code.';
+                showVoucherMessage('Please enter a voucher code.', 'error');
             } else {
-                message.className = 'voucher-message error';
-                message.textContent = '❌ Invalid voucher code. Please try again or contact support.';
+                showVoucherMessage('Invalid voucher code. Try FREETRY for free access.', 'error');
             }
         }
-        
-        // Show free access UI
-        function showFreeAccess() {
-            document.getElementById('freeCard').style.display = 'block';
-            document.getElementById('freeAccessBanner').classList.add('active');
-            document.getElementById('voucherSection').style.display = 'none';
-            document.getElementById('regularCard').style.opacity = '0.6';
+
+        function applyVoucher() {
+            const message = document.getElementById('voucherMessage');
+            const discountRow = document.getElementById('discountRow');
+            const discountAmount = document.getElementById('discountAmount');
+            const totalAmount = document.getElementById('totalAmount');
+            const productPrice = document.getElementById('productPrice');
+            const payButton = document.getElementById('payButton');
+            const paymentMethods = document.getElementById('paymentMethods');
+            const voucherSection = document.getElementById('voucherSection');
+            const freeAccessBanner = document.getElementById('freeAccessBanner');
+
+            voucherApplied = true;
+            currentPrice = 0;
+
+            // Update UI
+            message.className = 'voucher-message success';
+            message.innerHTML = '✅ <strong>Success!</strong> Free access granted!';
+            
+            discountRow.style.display = 'flex';
+            discountAmount.textContent = '-RM50.00';
+            totalAmount.textContent = 'RM0.00';
+            productPrice.textContent = 'FREE';
+            productPrice.style.color = 'var(--accent-dark)';
+
+            // Hide payment section, show free access
+            paymentMethods.style.display = 'none';
+            document.querySelector('.payment-form.active').style.display = 'none';
+            voucherSection.style.display = 'none';
+            freeAccessBanner.classList.add('active');
+
+            // Store in localStorage
+            localStorage.setItem('openclaw_free_access', 'true');
+            localStorage.setItem('openclaw_access_date', new Date().toISOString());
         }
-        
-        // Check if voucher system is disabled by admin
-        function checkVoucherStatus() {
-            if (!VOUCHER_CONFIG.ENABLED) {
-                document.getElementById('voucherSection').style.display = 'none';
-                document.getElementById('lockedNotice').classList.add('active');
+
+        function showVoucherMessage(text, type) {
+            const message = document.getElementById('voucherMessage');
+            message.className = 'voucher-message ' + type;
+            message.textContent = text;
+        }
+
+        // Payment Method Selection
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const method = this.dataset.method;
+
+                // Update active states
+                document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show corresponding form
+                document.querySelectorAll('.payment-form').forEach(f => f.classList.remove('active'));
+                document.getElementById(method + 'Form').classList.add('active');
+            });
+        });
+
+        // Card Number Formatting
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Expiry Date Formatting
+        document.getElementById('expiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
             }
+            e.target.value = value;
+        });
+
+        // Payment Handlers
+        function handlePayment(event) {
+            event.preventDefault();
+            processPayment('card');
         }
-        
-        // Allow Enter key to submit
+
+        function handlePaypalPayment(event) {
+            event.preventDefault();
+            processPayment('paypal');
+        }
+
+        function handleBankPayment(event) {
+            event.preventDefault();
+            processPayment('bank');
+        }
+
+        function processPayment(method) {
+            const payButton = document.querySelector('.payment-form.active .pay-btn');
+            const originalText = payButton.innerHTML;
+
+            // Show loading
+            payButton.disabled = true;
+            payButton.classList.add('processing');
+            payButton.innerHTML = '<span class="spinner"></span> Processing...';
+
+            // Simulate payment processing
+            setTimeout(() => {
+                // Show success modal
+                document.getElementById('successModal').classList.add('active');
+                
+                // Reset button
+                payButton.disabled = false;
+                payButton.classList.remove('processing');
+                payButton.innerHTML = originalText;
+
+                // Store purchase info
+                localStorage.setItem('openclaw_purchased', 'true');
+                localStorage.setItem('openclaw_purchase_date', new Date().toISOString());
+                localStorage.setItem('openclaw_purchase_method', method);
+            }, 2000);
+        }
+
+        // Close modal on outside click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+
+        // Check for existing free access on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const hasFreeAccess = localStorage.getItem('openclaw_free_access');
+            if (hasFreeAccess === 'true') {
+                applyVoucher();
+            }
+        });
+
+        // Allow Enter key for voucher
         document.getElementById('voucherInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
+                e.preventDefault();
                 checkVoucher();
             }
         });
-        
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            checkVoucherStatus();
-            checkExistingAccess();
-        });
-        
-        // Admin function to disable voucher (can be called from console)
-        function adminDisableVoucher() {
-            VOUCHER_CONFIG.ENABLED = false;
-            localStorage.setItem('vimamall_voucher_disabled', 'true');
-            checkVoucherStatus();
-            console.log('Voucher system disabled by admin');
-        }
-        
-        // Admin function to enable voucher
-        function adminEnableVoucher() {
-            VOUCHER_CONFIG.ENABLED = true;
-            localStorage.removeItem('vimamall_voucher_disabled');
-            location.reload();
-        }
     </script>
 </body>
 </html>

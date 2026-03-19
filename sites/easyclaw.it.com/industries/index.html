@@ -46,10 +46,35 @@
             background: var(--bg-white);
         }
 
+        /* Top Banner */
+        .top-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+
+        .top-banner a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .top-banner a:hover {
+            text-decoration: underline;
+        }
+
         /* Header */
         .header {
             position: fixed;
-            top: 0;
+            top: 40px;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.95);
@@ -96,7 +121,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 10rem 1.5rem 5rem;
+            padding: 12rem 1.5rem 5rem;
             background: linear-gradient(135deg, var(--bg-white) 0%, var(--accent-light) 100%);
             position: relative;
             overflow: hidden;
@@ -884,8 +909,17 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .top-banner {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .header {
+                top: 36px;
+            }
+
             .hero {
-                padding: 8rem 1rem 4rem;
+                padding: 10rem 1rem 4rem;
             }
 
             .why-us, .solutions, .how-it-works, .trust, .get-started, .industries, .inquiry {
@@ -948,6 +982,12 @@
     </style>
 </head>
 <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        Looking for custom software development? 
+        <a href="mailto:admin@vimamall.com">Contact us for enterprise solutions →</a>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="header-content">

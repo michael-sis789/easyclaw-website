@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 AI Workflows | OpenClaw Auto</title>
+    <meta name="description" content="Explore all 20 AI workflows included with OpenClaw Auto. From content creation to business automation, there's a workflow for every professional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-dark: #152a45;
+            --primary-light: #2d5a8f;
+            --accent: #00d4aa;
+            --accent-dark: #00b894;
+            --accent-light: #e6faf6;
+            --text-dark: #1a1a2e;
+            --text-medium: #4a4a68;
+            --text-light: #6b6b8b;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-gray: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --urgent-red: #ef4444;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 1.5rem 5rem;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--accent-light) 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-medium);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--urgent-red) 0%, #dc2626 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Filter Tabs */
+        .filter-section {
+            padding: 2rem 1.5rem;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 73px;
+            z-index: 100;
+        }
+
+        .filter-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-tab {
+            padding: 0.6rem 1.25rem;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover,
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Workflows Section */
+        .workflows {
+            padding: 3rem 1.5rem;
+            background: var(--bg-light);
+            min-height: 60vh;
+        }
+
+        .workflows-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .workflow-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            margin-bottom: 2rem;
+        }
+
+        .category-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-header p {
+            color: var(--text-medium);
+        }
+
+        .workflows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .workflow-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            scroll-margin-top: 150px;
+        }
+
+        .workflow-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .workflow-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .workflow-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .workflow-title h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .workflow-title span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .workflow-description {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .workflow-features {
+            list-style: none;
+            margin-bottom: 1.25rem;
+        }
+
+        .workflow-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            padding: 0.35rem 0;
+        }
+
+        .workflow-features li::before {
+            content: "✓";
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .workflow-meta {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .workflow-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 1.1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            padding: 3rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.75rem 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 8rem 1rem 4rem;
+            }
+
+            .filter-section {
+                top: 65px;
+                padding: 1rem;
+            }
+
+            .filter-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 0.5rem;
+            }
+
+            .workflows {
+                padding: 2rem 1rem;
+            }
+
+            .workflows-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-card {
+                scroll-margin-top: 130px;
+            }
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .sticky-cta a {
+            display: block;
+            background: linear-gradient(135deg, var(--urgent-red) 0%, #dc2626 100%);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Open<span>Claw</span> Auto</a>
+            <nav class="nav-links">
+                <a href="/workflows/" class="nav-link">Workflows</a>
+                <a href="/setup/" class="nav-link">Setup</a>
+                <a href="/industries/" class="nav-link">Custom Software</a>
+                <a href="/payment/" class="nav-cta">Buy Now - RM50</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">📦 20 Workflows Included</div>
+            <h1>Explore All 20 AI Workflows</h1>
+            <p>From content creation to business automation, find the perfect workflow for your profession. All included for just RM50.</p>
+            <a href="/payment/" class="hero-cta">Get All Workflows - RM50</a>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="filter-section">
+        <div class="filter-content">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Workflows</button>
+                <button class="filter-tab" data-filter="content">Content Creators</button>
+                <button class="filter-tab" data-filter="business">Business</button>
+                <button class="filter-tab" data-filter="finance">Finance</button>
+                <button class="filter-tab" data-filter="healthcare">Healthcare</button>
+                <button class="filter-tab" data-filter="tech">Tech</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflows Section -->
+    <section class="workflows">
+        <div class="workflows-content">
+            <!-- Content Creators -->
+            <div class="workflow-category" data-category="content">
+                <div class="category-header">
+                    <h2>🎬 Content Creators</h2>
+                    <p>Workflows designed for YouTubers, podcasters, writers, and marketers</p>
+                </div>
+                <div class="workflows-grid">
+                    <div class="workflow-card" id="youtuber">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🎬</div>
+                            <div class="workflow-title">
+                                <h3>YouTuber</h3>
+                                <span>Daily Content Pipeline</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Automates video idea generation, thumbnail suggestions, upload scheduling reminders, and comment moderation. Tracks trending topics in your niche.</p>
+                        <ul class="workflow-features">
+                            <li>Daily video ideas from trending topics</li>
+                            <li>Thumbnail A/B testing suggestions</li>
+                            <li>Comment moderation & spam filtering</li>
+                            <li>Upload schedule reminders</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Daily</span>
+                            <span>🤖 AI-Powered</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="podcaster">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🎙️</div>
+                            <div class="workflow-title">
+                                <h3>Podcaster</h3>
+                                <span>Production Pipeline</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Handles episode planning, guest research, show notes generation, and social promotion. Automatically transcribes episodes for blog content.</p>
+                        <ul class="workflow-features">
+                            <li>Episode outline generation</li>
+                            <li>Guest research summaries</li>
+                            <li>Auto show notes creation</li>
+                            <li>Social media promotion clips</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Per Episode</span>
+                            <span>🎵 Audio Ready</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="writer">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">✍️</div>
+                            <div class="workflow-title">
+                                <h3>Writer</h3>
+                                <span>Content Calendar</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Manages editorial calendar, generates article ideas, performs readability checks, and tracks publication deadlines across platforms.</p>
+                        <ul class="workflow-features">
+                            <li>Editorial calendar management</li>
+                            <li>Article topic suggestions</li>
+                            <li>Readability & SEO scoring</li>
+                            <li>Deadline tracking</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Weekly</span>
+                            <span>📝 Writing Focused</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="marketer">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">📢</div>
+                            <div class="workflow-title">
+                                <h3>Marketer</h3>
+                                <span>Social Media Automation</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Automates social posting across platforms, tracks engagement metrics, generates hashtag suggestions, and monitors brand mentions.</p>
+                        <ul class="workflow-features">
+                            <li>Cross-platform post scheduling</li>
+                            <li>Engagement analytics reports</li>
+                            <li>Trending hashtag finder</li>
+                            <li>Brand mention alerts</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Daily</span>
+                            <span>📱 Social Media</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business -->
+            <div class="workflow-category" data-category="business">
+                <div class="category-header">
+                    <h2>🏢 Business Professionals</h2>
+                    <p>Workflows for SME owners, consultants, realtors, and HR managers</p>
+                </div>
+                <div class="workflows-grid">
+                    <div class="workflow-card" id="sme">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🏢</div>
+                            <div class="workflow-title">
+                                <h3>SME Owner</h3>
+                                <span>Daily Business Digest</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Compiles daily business summaries: sales metrics, inventory alerts, customer feedback, and employee updates. Delivers a morning briefing every day.</p>
+                        <ul class="workflow-features">
+                            <li>Daily sales summary</li>
+                            <li>Inventory level alerts</li>
+                            <li>Customer feedback digest</li>
+                            <li>Staff attendance overview</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Daily 8 AM</span>
+                            <span>📊 Business Intelligence</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="consultant">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">💼</div>
+                            <div class="workflow-title">
+                                <h3>Consultant</h3>
+                                <span>Monthly Client Reports</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Generates comprehensive client reports with project progress, hours logged, milestones achieved, and recommendations for next month.</p>
+                        <ul class="workflow-features">
+                            <li>Project progress tracking</li>
+                            <li>Billable hours summary</li>
+                            <li>Milestone achievement reports</li>
+                            <li>Next month recommendations</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Monthly</span>
+                            <span>📋 Client Ready</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="realtor">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🏠</div>
+                            <div class="workflow-title">
+                                <h3>Realtor</h3>
+                                <span>New Listing Blast</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Automatically notifies your contact list of new listings, price drops, and open house events. Manages buyer inquiries and appointment scheduling.</p>
+                        <ul class="workflow-features">
+                            <li>New listing notifications</li>
+                            <li>Price drop alerts</li>
+                            <li>Open house reminders</li>
+                            <li>Buyer inquiry routing</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Real-time</span>
+                            <span>🏡 Property Focus</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="hr">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">👥</div>
+                            <div class="workflow-title">
+                                <h3>HR Manager</h3>
+                                <span>Recruitment Pipeline</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Tracks candidates through hiring stages, schedules interviews, sends follow-up emails, and maintains applicant database with status updates.</p>
+                        <ul class="workflow-features">
+                            <li>Candidate status tracking</li>
+                            <li>Interview scheduling</li>
+                            <li>Automated follow-up emails</li>
+                            <li>Applicant database sync</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Continuous</span>
+                            <span>👔 HR Tools</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="freelancer">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">💼</div>
+                            <div class="workflow-title">
+                                <h3>Freelancer</h3>
+                                <span>Weekly Invoice Run</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Generates and sends invoices based on tracked hours, follows up on overdue payments, and maintains financial records automatically.</p>
+                        <ul class="workflow-features">
+                            <li>Auto invoice generation</li>
+                            <li>Payment reminder emails</li>
+                            <li>Overdue payment alerts</li>
+                            <li>Income tracking & reports</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Weekly</span>
+                            <span>💰 Billing</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="teacher">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">📚</div>
+                            <div class="workflow-title">
+                                <h3>Teacher</h3>
+                                <span>Weekly Lesson Prep</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Creates lesson plans, generates quiz questions, grades assignments with rubrics, and sends progress reports to parents.</p>
+                        <ul class="workflow-features">
+                            <li>Lesson plan generation</li>
+                            <li>Quiz & test creation</li>
+                            <li>Assignment grading assistance</li>
+                            <li>Parent report generation</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Weekly</span>
+                            <span>🎓 Education</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="event">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🎉</div>
+                            <div class="workflow-title">
+                                <h3>Event Planner</h3>
+                                <span>Event Coordinator</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Manages vendor communications, tracks RSVPs, sends event reminders, and creates post-event thank you messages and surveys.</p>
+                        <ul class="workflow-features">
+                            <li>Vendor coordination</li>
+                            <li>RSVP tracking & reminders</li>
+                            <li>Guest communication</li>
+                            <li>Post-event follow-up</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Per Event</span>
+                            <span>🎊 Events</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="restaurant">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🍽️</div>
+                            <div class="workflow-title">
+                                <h3>Restaurant Owner</h3>
+                                <span>Daily Ops</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Monitors daily sales, tracks inventory levels, manages reservation confirmations, and collects customer feedback automatically.</p>
+                        <ul class="workflow-features">
+                            <li>Daily sales reports</li>
+                            <li>Inventory alerts</li>
+                            <li>Reservation management</li>
+                            <li>Review monitoring</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Daily</span>
+                            <span>🍴 F&B</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="ecommerce">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🛒</div>
+                            <div class="workflow-title">
+                                <h3>E-commerce</h3>
+                                <span>Daily Sync</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Syncs inventory across platforms, monitors competitor prices, tracks orders, and sends shipping notifications to customers.</p>
+                        <ul class="workflow-features">
+                            <li>Multi-platform inventory sync</li>
+                            <li>Price monitoring alerts</li>
+                            <li>Order tracking automation</li>
+                            <li>Shipping notifications</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Real-time</span>
+                            <span>🛍️ E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance -->
+            <div class="workflow-category" data-category="finance">
+                <div class="category-header">
+                    <h2>📈 Finance & Trading</h2>
+                    <p>Workflows for traders, accountants, and financial professionals</p>
+                </div>
+                <div class="workflows-grid">
+                    <div class="workflow-card" id="trader">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">📈</div>
+                            <div class="workflow-title">
+                                <h3>Trader</h3>
+                                <span>Pre-Market Briefing</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Delivers daily market analysis, tracks watchlist stocks, monitors news sentiment, and alerts on significant price movements before market open.</p>
+                        <ul class="workflow-features">
+                            <li>Market summary & futures</li>
+                            <li>Watchlist price alerts</li>
+                            <li>News sentiment analysis</li>
+                            <li>Earnings calendar reminders</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Daily 8 AM</span>
+                            <span>📊 Market Data</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="accountant">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🧮</div>
+                            <div class="workflow-title">
+                                <h3>Accountant</h3>
+                                <span>Monthly Tax Preparation</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Organizes receipts, categorizes expenses, generates tax reports, and prepares e-invoicing compliant documents for submission.</p>
+                        <ul class="workflow-features">
+                            <li>Receipt scanning & OCR</li>
+                            <li>Expense categorization</li>
+                            <li>Tax report generation</li>
+                            <li>E-invoice preparation</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Monthly</span>
+                            <span>📑 Tax Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healthcare -->
+            <div class="workflow-category" data-category="healthcare">
+                <div class="category-header">
+                    <h2>🩺 Healthcare</h2>
+                    <p>Workflows for doctors, clinics, fitness coaches, and wellness professionals</p>
+                </div>
+                <div class="workflows-grid">
+                    <div class="workflow-card" id="doctor">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🩺</div>
+                            <div class="workflow-title">
+                                <h3>Doctor</h3>
+                                <span>Patient Follow-Up System</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Manages patient appointment reminders, follow-up scheduling, prescription refill alerts, and maintains visit notes.</p>
+                        <ul class="workflow-features">
+                            <li>Appointment reminders</li>
+                            <li>Follow-up scheduling</li>
+                            <li>Prescription refill alerts</li>
+                            <li>Visit notes organization</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Continuous</span>
+                            <span>🏥 Medical</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="clinic">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">🏥</div>
+                            <div class="workflow-title">
+                                <h3>Clinic</h3>
+                                <span>Appointment Management</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Handles appointment bookings, sends confirmation and reminder messages, manages cancellations, and optimizes daily schedule.</p>
+                        <ul class="workflow-features">
+                            <li>Online booking system</li>
+                            <li>SMS/WhatsApp reminders</li>
+                            <li>Waitlist management</li>
+                            <li>Schedule optimization</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Real-time</span>
+                            <span>📅 Scheduling</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="fitness">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">💪</div>
+                            <div class="workflow-title">
+                                <h3>Fitness Coach</h3>
+                                <span>Client Progress Tracking</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Tracks client workouts, monitors progress metrics, sends motivation messages, and adjusts training plans based on results.</p>
+                        <ul class="workflow-features">
+                            <li>Workout log tracking</li>
+                            <li>Progress photo comparison</li>
+                            <li>Goal achievement alerts</li>
+                            <li>Personalized motivation</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Weekly</span>
+                            <span>💪 Fitness</span>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card" id="lawyer">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">⚖️</div>
+                            <div class="workflow-title">
+                                <h3>Lawyer</h3>
+                                <span>Case Research Assistant</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Tracks case deadlines, organizes legal documents, monitors relevant case law updates, and manages client communication logs.</p>
+                        <ul class="workflow-features">
+                            <li>Deadline tracking & alerts</li>
+                            <li>Document organization</li>
+                            <li>Case law monitoring</li>
+                            <li>Client communication log</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Continuous</span>
+                            <span>⚖️ Legal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech -->
+            <div class="workflow-category" data-category="tech">
+                <div class="category-header">
+                    <h2>👨‍💻 Technology</h2>
+                    <p>Workflows for developers and technical professionals</p>
+                </div>
+                <div class="workflows-grid">
+                    <div class="workflow-card" id="developer">
+                        <div class="workflow-header">
+                            <div class="workflow-icon">👨‍💻</div>
+                            <div class="workflow-title">
+                                <h3>Developer</h3>
+                                <span>Code Assistant</span>
+                            </div>
+                        </div>
+                        <p class="workflow-description">Monitors code repositories, generates commit messages, tracks issues, creates documentation, and sends deployment notifications.</p>
+                        <ul class="workflow-features">
+                            <li>Git commit suggestions</li>
+                            <li>Code review reminders</li>
+                            <li>Issue tracking updates</li>
+                            <li>Auto documentation generation</li>
+                        </ul>
+                        <div class="workflow-meta">
+                            <span>⏱️ Continuous</span>
+                            <span>💻 Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Automate Your Work?</h2>
+            <p>Get all 20 workflows for just RM50. One-time payment, lifetime access.</p>
+            <a href="/payment/" class="cta-btn">
+                Buy Now - RM50
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Open<span>Claw</span> Auto</div>
+        <div class="footer-links">
+            <a href="/workflows/">Workflows</a>
+            <a href="/setup/">Setup Guide</a>
+            <a href="/industries/">Custom Software</a>
+            <a href="/payment/">Buy Now</a>
+        </div>
+        <p>© 2025 Vimamall Sdn Bhd. All rights reserved.</p>
+    </footer>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <a href="/payment/">Get All 20 Workflows - RM50</a>
+    </div>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+
+                // Update active tab
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter categories
+                document.querySelectorAll('.workflow-category').forEach(category => {
+                    if (filter === 'all' || category.dataset.category === filter) {
+                        category.classList.remove('hidden');
+                    } else {
+                        category.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Scroll padding for fixed header
+        document.documentElement.style.scrollPaddingTop = '150px';
+    </script>
+</body>
+</html>
